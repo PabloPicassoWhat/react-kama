@@ -22,3 +22,15 @@ export const followAPI = {
     return instance.post(`follow/${userId}`).then(response => response.data);
   }
 };
+
+export const authAPI = {
+  getAuthMe() {
+    return instance.get(`auth/me`).then(response => response.data)
+  }
+};
+
+export const userProfileAPI = {
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`).then(response => response.data)
+  }
+}
