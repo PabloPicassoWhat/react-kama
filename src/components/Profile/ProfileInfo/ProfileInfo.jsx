@@ -4,6 +4,7 @@ import Preloader from "../../common/Preloader/Preloader";
 import truemark from "../../../assets/images/truemark.png"
 import chekmark from "../../../assets/images/mark.png"
 import profileimg from "../../../assets/images/profile-picture.png"
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -12,9 +13,9 @@ const ProfileInfo = (props) => {
 
   return (
     <div>
-      <div>
-        <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' width="1500px" alt='logoimg' />
-      </div>
+      {/*<div>*/}
+      {/*  <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' width="1500px" alt='logoimg' />*/}
+      {/*</div>*/}
       <div className={s.descriptionBlock}>
         <img src={props.profile.photos.large === null ? profileimg : props.profile.photos.large} width="300px" alt='profileimg'/>
         <div>
@@ -23,6 +24,7 @@ const ProfileInfo = (props) => {
               <h3>
                 {props.profile.fullName}
               </h3>
+              <ProfileStatus status={"Hello my friends"}/>
               {props.profile.aboutMe}
             </div>
             <div>
@@ -40,7 +42,7 @@ const ProfileInfo = (props) => {
             </div>
             <div>
               <span>
-                в поске работы: {props.profile.lookingForAJob === true ? <img src={truemark} alt='yes' width="50px"/> : <img src={chekmark} alt='no' width="50px"/>}
+                в поиске работы: {props.profile.lookingForAJob === true ? <img src={truemark} alt='yes' width="50px"/> : <img src={chekmark} alt='no' width="50px"/>}
               </span>
               <div>
                 {props.profile.lookingForAJobDescription}
