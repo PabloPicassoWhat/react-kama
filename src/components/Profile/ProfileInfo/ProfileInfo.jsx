@@ -5,6 +5,7 @@ import truemark from "../../../assets/images/truemark.png"
 import chekmark from "../../../assets/images/mark.png"
 import profileimg from "../../../assets/images/profile-picture.png"
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -24,7 +25,7 @@ const ProfileInfo = (props) => {
               <h3>
                 {props.profile.fullName}
               </h3>
-              <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+              <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
               {props.profile.aboutMe}
             </div>
             <div>
