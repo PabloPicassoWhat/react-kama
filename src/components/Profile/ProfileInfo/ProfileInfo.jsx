@@ -1,52 +1,48 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
-import truemark from "../../../assets/images/truemark.png"
-import chekmark from "../../../assets/images/mark.png"
-import profileimg from "../../../assets/images/profile-picture.png"
-import ProfileStatus from "./ProfileStatus";
+import truemark from "../../../assets/images/truemark.png";
+import chekmark from "../../../assets/images/mark.png";
+import profileimg from "../../../assets/images/profile-picture.png";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-  if (!props.profile) {
+const ProfileInfo = ({profile, status, updateStatus}) => {
+  if (!profile) {
     return <Preloader />
   }
 
   return (
     <div>
-      {/*<div>*/}
-      {/*  <img src='https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg' width="1500px" alt='logoimg' />*/}
-      {/*</div>*/}
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large === null ? profileimg : props.profile.photos.large} width="300px" alt='profileimg'/>
+        <img src={profile.photos.large === null ? profileimg : profile.photos.large} width="300px" alt='profileimg'/>
         <div>
           <div>
             <div>
               <h3>
-                {props.profile.fullName}
+                {profile.fullName}
               </h3>
-              <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
-              {props.profile.aboutMe}
+              <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+              {profile.aboutMe}
             </div>
             <div>
               my contacts:
               <ul>
-                <li>{props.profile.contacts.facebook === null ? "---" : props.profile.contacts.facebook}</li>
-                <li>{props.profile.contacts.website === null ? "---" : props.profile.contacts.website}</li>
-                <li>{props.profile.contacts.vk === null ? "---" : props.profile.contacts.vk}</li>
-                <li>{props.profile.contacts.twitter === null ? "---" : props.profile.contacts.twitter}</li>
-                <li>{props.profile.contacts.instagram === null ? "---" : props.profile.contacts.instagram}</li>
-                <li>{props.profile.contacts.youtube === null ? "---" : props.profile.contacts.youtube}</li>
-                <li>{props.profile.contacts.github === null ? "---" : props.profile.contacts.github}</li>
-                <li>{props.profile.contacts.mainLink === null ? "---" : props.profile.contacts.mainLink}</li>
+                <li>{profile.contacts.facebook === null ? "---" : profile.contacts.facebook}</li>
+                <li>{profile.contacts.website === null ? "---" : profile.contacts.website}</li>
+                <li>{profile.contacts.vk === null ? "---" : profile.contacts.vk}</li>
+                <li>{profile.contacts.twitter === null ? "---" : profile.contacts.twitter}</li>
+                <li>{profile.contacts.instagram === null ? "---" : profile.contacts.instagram}</li>
+                <li>{profile.contacts.youtube === null ? "---" : profile.contacts.youtube}</li>
+                <li>{profile.contacts.github === null ? "---" : profile.contacts.github}</li>
+                <li>{profile.contacts.mainLink === null ? "---" : profile.contacts.mainLink}</li>
               </ul>
             </div>
             <div>
               <span>
-                в поиске работы: {props.profile.lookingForAJob === true ? <img src={truemark} alt='yes' width="50px"/> : <img src={chekmark} alt='no' width="50px"/>}
+                в поиске работы: {profile.lookingForAJob === true ? <img src={truemark} alt='yes' width="50px"/> : <img src={chekmark} alt='no' width="50px"/>}
               </span>
               <div>
-                {props.profile.lookingForAJobDescription}
+                {profile.lookingForAJobDescription}
               </div>
             </div>
           </div>
