@@ -6,15 +6,22 @@ import chekmark from "../../../assets/images/mark.png";
 import profileimg from "../../../assets/images/profile-picture.png";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
   if (!profile) {
     return <Preloader />
+  }
+
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0]);
+    }
   }
 
   return (
     <div>
       <div className={s.descriptionBlock}>
         <img src={profile.photos.large === null ? profileimg : profile.photos.large} width="300px" alt='profileimg'/>
+        <div>{ isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}</div>
         <div>
           <div>
             <div>
