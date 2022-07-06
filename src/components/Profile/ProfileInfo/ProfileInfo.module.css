@@ -1,3 +1,12 @@
 .descriptionBlock {
   padding: 10px;
 }
+
+.myContacts {
+  padding-top: 20px;
+}
+
+.contact {
+  padding-left: 15px;
+  padding-top: 1px;
+}
